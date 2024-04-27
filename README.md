@@ -1,25 +1,24 @@
-# Protocolo Radar Inteligente (ProRDI)
-##### _Um trânsito mais inteligente para todos!_
-#### ProRDI é um projeto brasileiro que une sensores, câmeras, IoT e algoritmos avançados para melhorar a eficiência, velocidade e praticidade do trânsito.
+# Computer Vision Engine (CVEngine)
+##### _A democratização da visão computacional!_
+#### CVEngine é um projeto brasileiro que busca unir sensores, câmeras, IoT e algoritmos avançados para criar um motor de visão computacional.
 
-## Porque usar o ProRDI?
+## Por que usar o CVEngine? 💫
 
 - É um projeto 100%  grátis e open source, utiliza a biblioteca OpenCV e Python;
-- O protocolo é dinâmico, e possui fácil integração com os CLPs mais utilizados no trânsito brasileiro;
-- Não exige hardware próprio, podendo utilizar quaisquer câmeras e/ou sensores (exige sensores de profundidade e infravermelho para maior precisão dos dados sensoriais obtidos);
-- Ainda que seu maior propósito seja o trânsito, pode ser aplicado de várias formas.
+- O motor é dinâmico e não exige muito conhecimento para seu uso, podendo até mesmo ter uso didático, dada sua facilidade de uso e simples instalação e manutenção;
+- Ao utilizar a biblioteca OpenCV, é possível desfrutar de Wiki's, tutoriais e manuais de uso;
+- Por sua natureza modular, os usos do motor são inúmeros.
 
-## Por que criamos o ProRDI?
+## Por que criei o CVEngine? 😳
 
  > A razão sempre existiu, mas nem sempre de forma razoável, Karl Marx. 💭 
 
-O RDI foi criado pois todos precisam uma maior segurança e agilidade no trânsito, não importando se você é pedestre, ciclista ou motociclista. TODOS merecem segurança e praticidade.
+Ao utilizar a visão computacional para um trabalho de conclusão de curso, notei que apesar de ter um sólido futuro, a tecnologia ainda era de difícil acesso e uso, ainda que a biblioteca OpenCV seja de código aberto, ela não é de fácil entendimento, sobretudo para iniciantes no mundo da programação. Então, decidi dar uma forcinha! 
 
-## Como criamos o ProRDI?
-#### Graças a biblioteca OpenCV (Open Computing Vision) e a linguagem de programação Python, fomos capazes de trazer nossa magnífica ideia uma coisa real.
-#### Nós acreditamos que o ProRDI também pode ser um objeto de estudo em escolas brasileiras, pois a linguagem Python é de fácil entendimento, e todo o seu código é comentado de forma simples e integralmente em Português Brasileiro. O ProRDI também surgiu como um Trabalho de Conclusão de Curso, em 2024. 
+## Como criei o CVEngine? 🤔
+ O CVEngine nada mais é do que uma 'toolbox' do OpenCV. O OpenCV exige conhecimento prévio, portanto, não é simples de usar e não é intuitivo para novos usuários. Acredito que o OpenCV possa ser crucial para o nosso futuro, mas sua dificuldade de uso ainda torna complicado o aprendizado. Ainda que seja um projeto didático, o CVEngine também pode ser utilizado para aplicações de diversos portes.
 
-## Como instalar o ProRDI?
+## Como instalar o CVEngine? 🤩
 #### O método de instalação depende de qual é o seu sistema operacional:
 
 #### Para Arch Linux:
@@ -33,14 +32,10 @@ cd [PLACEHOLDER]
 #### Para Windows:
 
 Eita, foi mal! Não suportamos Windows ainda :(
-## Sensores necessários:
-#### Aqui, está listado as capacidades de cada sensor. Note que você ainda terá a capacidade de utilizar alguma capacidade sem determinado sensor, mas a precisão será notavelemente reduzida. NÓS NÃO RECOMENDAMOS!
-
-| Sensor | Capacidade |
-| ------ | ------ |
-| placeholder bebê | foi mal! |
+## I would like to use CVEngine, but i don't know Portuguese! 😔
+I am very sorry! CVEngine was made in portuguese so my brazilian classmates could understand better what i am doing, but if needed, contact me! This project is used for an "undergraduate thesis", BUT I would love to make CVEngine a big deal for OpenCV learning! I hope you understand.
 
 
-## Agradecimentos
+## Agradecimentos ❤️
 >  Toda instituição tem sua estrutura natural e inevitavelmente determinada pelo conteúdo de sua ação, Lenin. 💭 
 #### Nós agradecemos a TODA comunidade Open Source! Mas em especial, agradecemos a todos envolvidos no projeto OpenCV e na linguagem Python. Agradecemos também a todos envolvidos no nosso projeto, ou que pelo menos acompanharam a evolução disso. Muito obrigado! ❤️
