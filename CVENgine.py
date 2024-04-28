@@ -42,7 +42,7 @@ def processar_opcao(opcao):
     elif opcao == '3':
         abrir_arquivo("carros")
     elif opcao == '4':
-        print("Opa! Essa opção ainda não está disponível!")
+        abrir_arquivo("bicicletas")
     elif opcao == '5':
         print("Opa! Essa opção ainda não está disponível!")
     elif opcao == '6':

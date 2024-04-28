@@ -14,9 +14,12 @@ car_cascade = cv2.CascadeClassifier(cascade_path)
 def detect_cars(frame):
     # Converter o frame para escala de cinza
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    # Aplicar redução de ruído com filtragem bilateral
+    gray = cv2.bilateralFilter(gray, 11, 17, 17)
     
     # Detectar carros na imagem
-    cars = car_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
+    cars = car_cascade.detectMultiScale(gray, scaleFactor=1.05, minSize=(50,50))
     
     # Desenhar um quadrado ao redor de cada carro detectado
     for (x, y, w, h) in cars:
