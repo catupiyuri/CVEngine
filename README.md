@@ -18,20 +18,33 @@ Ao utilizar a visão computacional para um trabalho de conclusão de curso, note
 ## Como criei o CVEngine? 🤔
  O CVEngine nada mais é do que uma 'toolbox' do OpenCV. O OpenCV exige conhecimento prévio, portanto, não é simples de usar e não é intuitivo para novos usuários. Acredito que o OpenCV possa ser crucial para o nosso futuro, mas sua dificuldade de uso ainda torna complicado o aprendizado. Ainda que seja um projeto didático, o CVEngine também pode ser utilizado para aplicações de diversos portes.
 
-## Como instalar o CVEngine? 🤩
-#### O método de instalação depende de qual é o seu sistema operacional:
+## Como usar o CVEngine? 🤩
+#### O método de instalação inicial e uso depende de qual é o seu sistema operacional:
 
 #### Para Arch Linux:
 
+Configure as dependências e instale o python:
 ```sh
-yay git & python & opencv_python
-git clone [PLACEHOLDER]
-cd [PLACEHOLDER]
+sudo pacman -S git & python & opencv_python
+git clone https://github.com/Desuoka/CVEngine/
+cd CVEngine
 ```
+Após isso, para executar o CVEngine, você pode usar:
+```sh
+python CVEngine.py
+```
+Mas lembre-se, execute o comando acima no diretório do CVEngine!
 
 #### Para Windows:
+Você deve instalar o [Python aqui,](https://www.python.org/downloads/), e então, instale as dependências utilizando o pip:
+```sh
+pip install python-opencv
+```
+Após isso, clone o repositório, extraia-o em uma pasta e abra o CMD na pasta que você extraiu e execute:
+```sh
+python CVEngine.py
+```
 
-Eita, foi mal! Não suportamos Windows ainda :(
 ## I would like to use CVEngine, but i don't know Portuguese! 😔
 I am very sorry! CVEngine was made in portuguese so my brazilian classmates could understand better what i am doing, but if needed, contact me! This project is used for an "undergraduate thesis", BUT I would love to make CVEngine a big deal for OpenCV learning! I hope you understand.
 
