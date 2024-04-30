@@ -1,0 +1,7 @@
+numpy
+rich
+scikit-image
+Pillow
+scikit-learn
+keras
+colorama
