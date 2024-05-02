@@ -1,9 +1,12 @@
 import numpy as np
 import logging
-import config 
-from config import *
+import sys
+import os
+
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
 from pprint import pprint
-from dados import X_treino, Y_treino, X_validacao, Y_validacao
+from data.dados import X_treino, Y_treino, X_validacao, Y_validacao
 logging.basicConfig(level=logging.INFO)
 
 class IndividuoGenetico:

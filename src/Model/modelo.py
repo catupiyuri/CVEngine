@@ -1,4 +1,4 @@
-from dados import X, Y
+from src.data.dados import X, Y
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import tensorflow as tf
@@ -8,7 +8,7 @@ from tensorflow.keras import regularizers
 from logs import TrainingLogger
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.layers import GlobalAveragePooling2D
-from genetics import criar_populacao_inicial, avaliar_individuo, selecionar_individuo, crossover, mutacao, evoluir_populacao
+from src.genetic.genetics import criar_populacao_inicial, avaliar_individuo, selecionar_individuo, crossover, mutacao, evoluir_populacao
 
 from sklearn.model_selection import train_test_split
 X = tf.cast(X, tf.float32)

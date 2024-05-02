@@ -124,7 +124,7 @@ def print_info(label, value):
         value = f'{value:>4}'
     print("{:<30}: {}".format(label, value))   
 
-cache_file = 'Image_data_cache.joblib'
+cache_file = 'cache/Image_data_cache.joblib'
 
 def check_data(cache_data):
     return len(cache_data) == 6 and all(isinstance(i, np.ndarray) for i in cache_data)

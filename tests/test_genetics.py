@@ -2,7 +2,7 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import unittest
 import numpy as np
-from genetics import IndividuoGenetico, PopulacaoGenetica
+from src.genetic.genetics import IndividuoGenetico, PopulacaoGenetica
 from keras.models import Sequential
 import pprint
 
