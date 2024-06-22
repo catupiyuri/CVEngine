@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVEngine: Detecção de rostos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            max-width: 80%;
+        }
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+        img:hover {
+            transform: scale(1.02);
+        }
+        #face_count {
+            font-weight: bold;
+            color: #007bff;
+            font-size: 36px;
+            margin-left: 10px;
+        }
+        .icon {
+            color: #007bff;
+            font-size: 36px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Detecção de Rostos: <span id="face_count">0</span> <i class="fas fa-user icon"></i></h1>
+        <img id="video_feed" src="{{ url_for('video_feed') }}" alt="Feed de Vídeo">
+    </div>
+    
+    <script>
+        // Função para atualizar o número de rostos detectados
+        function updateFaceCount(count) {
+            document.getElementById('face_count').textContent = count;
+        }
+
+        // Atualizar o número de rostos detectados a cada segundo
+        setInterval(() => {
+            fetch('/face_count')
+                .then(response => response.json())
+                .then(data => updateFaceCount(data.count))
+                .catch(error => console.error('Error:', error));
+        }, 1000);
+    </script>
+</body>
+</html>
+

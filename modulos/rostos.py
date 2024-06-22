@@ -1,22 +1,27 @@
+from flask import Flask, render_template, Response, jsonify
 import cv2
-import os
+import freenect
+import numpy as np
 
-# Obtém o diretório atual do script
-script_dir = os.path.dirname(__file__)
-
-# Caminho para o arquivo haarcascade_frontalface_default.xml
-cascade_path = os.path.join(script_dir, "../modelos/haarcascade_rostos.xml")
+app = Flask(__name__)
 
 # Carregar o classificador pré-treinado para detecção de rostos
-face_cascade = cv2.CascadeClassifier(cascade_path)
+face_cascade = cv2.CascadeClassifier("../modelos/haarcascade_rostos.xml")
 
-# Função para detectar e desenhar quadrados ao redor dos rostos
+face_count = 0  # Variável global para armazenar o número de rostos detectados
+
+# Modifique a função detect_faces para atualizar o número de rostos detectados
 def detect_faces(frame):
+    global face_count
+    
     # Converter o frame para escala de cinza
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     
     # Detectar rostos na imagem
-    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
+    faces = face_cascade.detectMultiScale(gray, scaleFactor=1.09, minNeighbors=5, minSize=(30, 30))
+    
+    # Atualizar o número de rostos detectados
+    face_count = len(faces)
     
     # Desenhar um quadrado ao redor de cada rosto detectado
     for (x, y, w, h) in faces:
@@ -24,26 +29,40 @@ def detect_faces(frame):
     
     return frame
 
-# Inicializar a webcam
-cap = cv2.VideoCapture(0)
+# Adicione uma nova rota para retornar o número de rostos detectados
+@app.route('/face_count')
+def get_face_count():
+    return jsonify({'count': face_count})
 
-while True:
-    # Capturar frame por frame
-    ret, frame = cap.read()
-    
+def generate_frames():
+    while True:
+        # Capturar frame do Kinect
+        frame, _ = freenect.sync_get_video()
+        
+        # Converter para RGB
+        frame = cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)
+        
+        # Chamar a função para detectar rostos
+        frame = detect_faces(frame)
+        
+        # Codificar o frame como JPEG
+        ret, buffer = cv2.imencode('.jpg', frame)
+        
+        # Converter o buffer para bytes
+        frame_bytes = buffer.tobytes()
+        
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
 
-    
-    # Chamar a função para detectar rostos
-    frame = detect_faces(frame)
-    
-    # Exibir o frame resultante
-    cv2.imshow('CVEngine: Detecção de Rostos', frame)
-    
-    # Parar o loop quando 'q' for pressionado
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
 
-# Liberar a captura e fechar todas as janelas
-cap.release()
-cv2.destroyAllWindows()
+@app.route('/')
+def index():
+    return render_template('rostos.html')
+
+@app.route('/video_feed')
+def video_feed():
+    return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', debug=True)
 
